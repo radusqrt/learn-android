@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class MainActivity extends Activity {
@@ -45,22 +46,22 @@ public class MainActivity extends Activity {
             arraylist.add(wp);
         }
 
-        // Pass results to ListViewAdapter Class
+        // Pass results to com.example.radus.filterlistviewtutorial.ListViewAdapter Class
         adapter = new ListViewAdapter(this, arraylist);
 
         // Binds the Adapter to the ListView
         list.setAdapter(adapter);
 
         // Locate the EditText in listview_main.xml
-        editsearch = (EditText) findViewById(R.id.search);
+        editSearch = (EditText) findViewById(R.id.search);
 
         // Capture Text in EditText
-        editsearch.addTextChangedListener(new TextWatcher() {
+        editSearch.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void afterTextChanged(Editable arg0) {
                 // TODO Auto-generated method stub
-                String text = editsearch.getText().toString().toLowerCase(Locale.getDefault());
+                String text = editSearch.getText().toString().toLowerCase(Locale.getDefault());
                 adapter.filter(text);
             }
 
@@ -76,12 +77,5 @@ public class MainActivity extends Activity {
                 // TODO Auto-generated method stub
             }
         });
-    }
-
-    // Not using options menu in this tutorial
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
-        return true;
     }
 }
