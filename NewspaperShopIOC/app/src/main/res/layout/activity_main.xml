@@ -12,6 +12,7 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
+            android:backgroundTint="#8e0000"
             android:id="@+id/history_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -34,36 +35,101 @@
                 android:orientation="vertical">
 
                 <EditText
+                    android:imeOptions="actionDone"
+                    android:id="@+id/search_edit_text"
                     android:drawableLeft="@android:drawable/ic_menu_search"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <ListView
+                    android:focusableInTouchMode="true"
+                    android:focusable="true"
                     android:id="@+id/news_listview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-
+                    <requestFocus/>
                 </ListView>
 
             </LinearLayout>
 
-            <TextView
+            <LinearLayout
                 android:id="@+id/checkout_layout"
+                android:weightSum="2"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="DA"/>
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:padding="5dp"
+                        android:id="@+id/checkout_title"
+                        android:textColor="#FFFFFF"
+                        android:background="#c62828"
+                        android:gravity="center"
+                        android:text="Produse cumparate"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <ScrollView
+                        android:layout_below="@id/checkout_title"
+                        android:scrollbarStyle="insideInset"
+                        android:fillViewport="true"
+                        android:scrollbars="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/checkout_list"
+                            android:text=""
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </ScrollView>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/make_checkout"
+                        android:textColor="#FFFFFF"
+                        android:background="#c62828"
+                        android:text="CHECKOUT"
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
 
             <android.support.design.widget.FloatingActionButton
+                app:rippleColor="#8e0000"
+                android:clickable="true"
+                android:id="@+id/reset_button"
+                android:backgroundTint="#c62828"
+                android:tint="#FFFFFF"
                 android:src="@drawable/ic_refresh_black_24dp"
                 app:fabSize="normal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end" />
+                android:layout_gravity="bottom|end"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"/>
 
         </FrameLayout>
 
         <LinearLayout
+            android:background="#c62828"
             android:id="@+id/nav_buttons_layout"
             android:layout_alignParentBottom="true"
             android:weightSum="2"
@@ -71,14 +137,32 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageButton
+            <ImageView
+                android:clickable="true"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:tint="#FFFFFF"
+                android:background="#8e0000"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:id="@+id/shopping_button"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_add_shopping_cart_black_24dp"/>
 
-            <ImageButton
+            <ImageView
+                android:clickable="true"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:tint="#FFFFFF"
+                android:background="#8e0000"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:id="@+id/checkout_button"
                 android:layout_weight="1"
                 android:src="@drawable/ic_shopping_cart_black_24dp"
